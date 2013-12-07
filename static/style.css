@@ -1,0 +1,96 @@
+
+body {
+
+	min-width: 1000px;
+}
+
+.sky_background {
+
+	z-index: -1;
+	position: absolute;
+	width: 100%;
+	min-width: 1000px;
+}
+
+.island {
+
+	position: absolute;
+	margin: 0 auto;
+	width: 30%;
+	min-width: 300px;
+    top: 20%;
+    left: 35%;
+}
+
+.email_div {
+
+	left: 40%;
+    top: 80%;
+}
+
+.rounded_corners {
+
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.game_title {
+
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-topleft: 0px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+
+	width: 400px;
+	text-align: center;
+}
+
+.side_tab {
+
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+	position: absolute;
+	right: 0px;
+	padding: 10px;
+	padding-right: 30px;
+
+	width: 300px;
+	text-align: center;
+
+	overflow: hidden;
+}
+
+.release_date {
+
+    top: 100px;
+}
+
+.about {
+
+    top: 200px;
+    cursor: pointer;
+}
+
+.form_confirmation_box {
+
+	padding: 5px;
+	font-size: 20px;
+}

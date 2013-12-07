@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="rounded_corners game_title">
+        <h1>Heaven's Tournament</h1>
+    </div>
+    <div class="rounded_corners side_tab release_date">
+        <h3>December 16th, 2013</h3>
+    </div>
+    <div class="rounded_corners side_tab about">
+        <h3>What is This?</h3>
+    </div>
+    <div class="island email_div">
+        {% block form_content %}
+        <form class="form-inline" method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Stay Updated" />
+        </form>
+        {% endblock %}
+    </div>
+{% endblock %}
