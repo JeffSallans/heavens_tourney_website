@@ -22,6 +22,8 @@ def index(request):
 		if (email != ''):
 			interest = Interest(email=email)
 			interest.save()
+		else:
+			template = loader.get_template('splash.html')
 
 	context = RequestContext(request, {
 		'error_message': error_message,

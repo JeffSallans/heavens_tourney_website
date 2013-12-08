@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-    <div class="rounded_corners game_title">
-        <h1>Heaven's Tournament</h1>
+    <div class="game_title_container">
+        <div class="rounded_corners game_title">
+            <h1>Heaven's Tournament</h1>
+        </div>
     </div>
-    <div class="rounded_corners side_tab release_date">
-        <h3>December 16th, 2013</h3>
+    <div class="release_date_container">
+        <div class="rounded_corners side_tab release_date">
+            <h3>December 16th, 2013</h3>
+        </div>
     </div>
-    <div class="rounded_corners side_tab about">
-        <h3>What is This?</h3>
+    <div class="about_container">
+        <div class="rounded_corners side_tab about">
+            <h3>What is This?</h3>
+        </div>
+    </div>
+    <div class="game_description_container">
+        <div class="rounded_corners game_description">
+            <p>What is This?</p>
+        </div>
     </div>
     <div class="island email_div">
         {% block form_content %}
@@ -18,8 +29,41 @@
                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
             </div>
-            <input type="submit" class="btn btn-primary" value="Stay Updated" />
+            <input type="submit" class="btn btn-default" value="Stay Updated" />
         </form>
         {% endblock %}
     </div>
+
+    <script>
+    $(function() {
+        // run the currently selected effect
+        function show_game_description() {
+            
+            //Check if visible
+            if ( $(".game_description").is(':visible') ) {
+
+                $(".game_description").hide("slide", 3000);
+            }
+            else {
+            
+                $(".game_description").show("slide", 3000);
+            }
+        }
+
+        $(".about").click(show_game_description);
+
+        $(".game_title").hide();
+        $(".game_description").hide();
+        $(".release_date").hide();
+        $(".about").hide();
+
+        $(".game_title").show("slide", { direction: "up" }, 2000, function() {
+
+            $(".release_date").show("slide", { direction: "right" }, 1000, function() {
+
+                $(".about").show("slide", { direction: "right" }, 1000);
+            });
+        });
+    });
+    </script>
 {% endblock %}
