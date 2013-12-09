@@ -8,10 +8,10 @@
         <img class="island" src="{{MEDIA_URL}}pictures/world1.png"></img>
     </div>
     <div class="rounded_corners side_tab release_date">
-        <h3>December 16th, 2013</h3>
+        <h3>Coming December 16th</h3>
     </div>
     <div class="rounded_corners side_tab about">
-        <h3>What is This?</h3>
+        <h3>What Is This?</h3>
     </div>
     <div class="rounded_corners game_description">
         <p>Heaven's Tournament is a real time monster fighting game. Come battle your friends, time your attacks, and earn the favor of the gods.</p>
@@ -47,17 +47,13 @@
 
         $(".about").click(show_game_description);
 
-        $(".game_title").hide();
         $(".game_description").animate({ "left": "-=450px" }, 0);
         $(".release_date").animate({ "right": "-=300px" }, 0);
         $(".about").animate({ "right": "-=300px" }, 0);
 
-        $(".game_title").show("slide", { direction: "up" }, 2000, function() {
+        $( ".release_date" ).animate({ "right": "+=300px" }, 2500, function() {
 
-            $( ".release_date" ).animate({ "right": "+=300px" }, 1000, function() {
-
-                $( ".about" ).animate({ "right": "+=300px" }, 1000);                    
-            });
+            $( ".about" ).animate({ "right": "+=300px" }, 1000);                    
         });
     });
     </script>
