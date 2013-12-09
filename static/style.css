@@ -1,7 +1,7 @@
 
 body {
 
-	min-width: 1000px;
+	overflow-x:hidden;
 }
 
 .sky_background {
@@ -9,23 +9,19 @@ body {
 	z-index: -1;
 	position: absolute;
 	width: 100%;
-	min-width: 1000px;
+
+	min-height: 800px;
 }
 
 .island {
 
-	position: absolute;
 	margin: 0 auto;
-	width: 30%;
-	min-width: 300px;
-    top: 20%;
-    left: 35%;
+	width: 500px;
 }
 
 .email_div {
 
-	left: 40%;
-    top: 80%;
+	width: 330px;
 }
 
 .rounded_corners {
@@ -54,6 +50,7 @@ body {
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
 
+	margin: 0 auto;
 	width: 400px;
 	text-align: center;
 }
@@ -111,10 +108,16 @@ body {
 
 	position: absolute;
 	left: 0px;
-	top: 200px;
+	top: 100px;
 	padding: 10px;
 	width: 450px;
 	word-wrap:break-word;
 
 	font-size: 26px;
+}
+
+.side_tab_container {
+
+	width: 300px;
+	height: auto;
 }
