@@ -5,7 +5,7 @@
         <h1>Heaven's Tournament</h1>
     </div>
     <div class="rounded_corners side_tab release_date">
-        <h4>Coming December 16th</h4>
+        <h4>Coming January 7th</h4>
     </div>
     <div class="rounded_corners side_tab about">
         <h4>What Is This?</h4>
@@ -28,6 +28,9 @@
 
     <script>
     $(function() {
+
+        var init_hover_effect = false;
+
         // run the currently selected effect
         function show_game_description() {
             
@@ -42,16 +45,38 @@
             }
         }
 
+        function on_hover_in() {
+
+            $(this).animate({"left": "+=250px"}, 1000);
+        }
+
+        function on_hover_out() {
+
+            $(this).animate({"left": "-=250px"}, 1000);
+        }
+
         $(".about").click(show_game_description);
 
         $(".game_description").animate({ "left": "-=450px" }, 0);
-        $(".release_date").animate({ "right": "-=300px" }, 0);
-        $(".about").animate({ "right": "-=300px" }, 0);
+        $(".release_date").animate({ "left": "-=300px" }, 0);
+        $(".about").animate({ "left": "-=300px" }, 0);
 
-        $( ".release_date" ).animate({ "right": "+=300px" }, 2500, function() {
+        $( ".release_date" ).animate({ "left": "+=300px" }, 2500, function() {
 
-            $( ".about" ).animate({ "right": "+=300px" }, 1000);                    
+            $( ".about" ).animate({ "left": "+=300px" }, 2500, function() {
+
+                //close all
+                $(".side_tab").animate({"left": "-=250px"}, 1000, function() {
+
+                    if (!init_hover_effect) {
+
+                        $(".side_tab").hover(on_hover_in, on_hover_out);
+                        init_hover_effect = true;
+                    }
+                });
+            });                    
         });
+
     });
     </script>
 {% endblock %}
