@@ -12,9 +12,18 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script type="text/javascript" src="{{MEDIA_URL}}lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            body { 
+
+              background: url({{MEDIA_URL}}pictures/background.png) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+            }
+        </style>
     </head>
     <body>
-        <img class="sky_background" src="{{MEDIA_URL}}pictures/Sky_Background.jpg"></img>
         <div class="container">
 
                 {% if error_message %}
