@@ -5,19 +5,19 @@
         <h1>Heaven's Tournament</h1>
     </div>
     <div class="rounded_corners side_tab release_date">
-        <h3>Coming December 16th</h3>
+        <h4>Coming December 16th</h4>
     </div>
     <div class="rounded_corners side_tab about">
-        <h3>What Is This?</h3>
+        <h4>What Is This?</h4>
     </div>
     <div class="rounded_corners game_description">
         <p>Heaven's Tournament is a real time monster fighting game. Come battle your friends, time your attacks, and earn the favor of the gods.</p>
     </div>
-    <div class="island email_div">
+    <div class="email_div">
         {% block form_content %}
         <form class="form-inline" method="POST" action="">
             {% csrf_token %}
-            <div class="form-group">
+            <div class="form-group inline_hack">
                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
             </div>
