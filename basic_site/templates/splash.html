@@ -10,9 +10,6 @@
     <div class="rounded_corners side_tab about">
         <h4>What Is This?</h4>
     </div>
-    <div class="rounded_corners game_description">
-        <p>Heaven's Tournament is a real time monster fighting game. Come battle your friends, time your attacks, and earn the favor of the gods.</p>
-    </div>
     <div class="email_div">
         {% block form_content %}
         <form class="form-inline" method="POST" action="">
@@ -38,13 +35,13 @@
             if ( $(".game_description").data("is_closed") === true ) {
 
                 $(".game_description").data( "is_closed", false);
-                $(".game_description").animate({ "bottom": "+=450px" }, 1000);
+                $(".game_description").animate({ "bottom": "+=200px" }, 1000);
             }
             else if ($(".game_description").data("is_closed") === false &&
              $(".game_description").data("is_closing") === false) {
             
                 $(".game_description").data( "is_closing", true);
-                $(".game_description").animate({ "bottom": "-=450px" }, 1000, function() {
+                $(".game_description").animate({ "bottom": "-=200px" }, 1000, function() {
 
                     $(".game_description").data( "is_closing", false);
                     $(".game_description").data( "is_closed", true);
@@ -76,11 +73,11 @@
 
         $(".about").click(show_game_description);
 
-        $(".game_description").animate({ "left": "-=450px" }, 0);
+        $(".game_description").animate({ "bottom": "-=200px" }, 0);
         $(".game_description").data( "is_closing", false);
         $(".game_description").data( "is_closed", true);
 
-        
+
         $(".release_date").animate({ "left": "-=300px" }, 0);
         $(".about").animate({ "left": "-=300px" }, 0);
 
@@ -102,4 +99,14 @@
 
     });
     </script>
+{% endblock %}
+
+{% block tab_content %}
+    
+    <div class="game_description_container">
+        <div class="rounded_corners game_description">
+            <p>Heaven's Tournament is a real time monster fighting game. Come battle your friends, time your attacks, and earn the favor of the gods.</p>
+        </div>
+    </div>
+
 {% endblock %}
