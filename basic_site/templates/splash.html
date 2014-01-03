@@ -35,44 +35,67 @@
         function show_game_description() {
             
             //Check if visible         
-            if ( $(".game_description").css("left") === "0px" ) {
+            if ( $(".game_description").data("is_closed") === true ) {
 
-                $(".game_description").animate({ "left": "-=450px" }, 1000);
+                $(".game_description").data( "is_closed", false);
+                $(".game_description").animate({ "bottom": "+=450px" }, 1000);
             }
-            else {
+            else if ($(".game_description").data("is_closed") === false &&
+             $(".game_description").data("is_closing") === false) {
             
-                $(".game_description").animate({ "left": "+=450px" }, 1000);
+                $(".game_description").data( "is_closing", true);
+                $(".game_description").animate({ "bottom": "-=450px" }, 1000, function() {
+
+                    $(".game_description").data( "is_closing", false);
+                    $(".game_description").data( "is_closed", true);
+                });
             }
         }
 
         function on_hover_in() {
 
-            $(this).animate({"left": "+=250px"}, 1000);
+            if ($(this).data("is_closed") === true) {
+
+                $(this).data( "is_closed", false);
+                $(this).animate({"left": "+=250px"}, 1000);
+            }
         }
 
         function on_hover_out() {
 
-            $(this).animate({"left": "-=250px"}, 1000);
+            if ( $(this).data("is_closed") === false && $(this).data("is_closing") === false) {
+
+                $(this).data( "is_closing", true);
+                $(this).animate({"left": "-=250px"}, 1000, function() {
+
+                    $(this).data( "is_closing", false);
+                    $(this).data( "is_closed", true);
+                });
+            }
         }
 
         $(".about").click(show_game_description);
 
         $(".game_description").animate({ "left": "-=450px" }, 0);
+        $(".game_description").data( "is_closing", false);
+        $(".game_description").data( "is_closed", true);
+
+        
         $(".release_date").animate({ "left": "-=300px" }, 0);
         $(".about").animate({ "left": "-=300px" }, 0);
 
-        $( ".release_date" ).animate({ "left": "+=300px" }, 2500, function() {
+        $( ".release_date" ).animate({ "left": "+=300px" }, 1000, function() {
 
-            $( ".about" ).animate({ "left": "+=300px" }, 2500, function() {
+            $( ".about" ).animate({ "left": "+=300px" }, 1000, function() {
 
                 //close all
                 $(".side_tab").animate({"left": "-=250px"}, 1000, function() {
 
-                    if (!init_hover_effect) {
+                    $(this).hover(on_hover_in, on_hover_out);
+                    $(this).data( "is_closed", true);
+                    $(this).data( "is_closing", false);
 
-                        $(".side_tab").hover(on_hover_in, on_hover_out);
-                        init_hover_effect = true;
-                    }
+                    console.log($(this));
                 });
             });                    
         });
