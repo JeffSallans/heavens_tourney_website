@@ -56,6 +56,11 @@
                 $(this).data( "is_closed", false);
                 $(this).animate({"left": "+=250px"}, 1000);
             }
+            else {
+
+                clearTimeout($(this).data("timeout_func"));
+                $(this).data( "is_closing", false);
+            }
         }
 
         function on_hover_out() {
@@ -63,11 +68,18 @@
             if ( $(this).data("is_closed") === false && $(this).data("is_closing") === false) {
 
                 $(this).data( "is_closing", true);
-                $(this).animate({"left": "-=250px"}, 1000, function() {
 
-                    $(this).data( "is_closing", false);
-                    $(this).data( "is_closed", true);
-                });
+                var that = $(this);
+
+                var timeout = setTimeout(function() {
+                    that.animate({"left": "-=250px"}, 1000, function() {
+
+                        that.data( "is_closing", false);
+                        that.data( "is_closed", true);
+                    });
+                }, 2000);
+
+                that.data("timeout_func", timeout);
             }
         }
 
