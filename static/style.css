@@ -78,11 +78,11 @@ body {
     cursor: pointer;
 }
 
-.about:hover {
+.about:hover h4 {
 
-	width: 310px;
+	font-weight: bold;
 }
-
+	
 .form_confirmation_box {
 
 	padding: 5px;
