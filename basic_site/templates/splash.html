@@ -59,7 +59,6 @@
             else {
 
                 clearTimeout($(this).data("timeout_func"));
-                $(this).data( "is_closing", false);
             }
         }
 
@@ -67,11 +66,12 @@
 
             if ( $(this).data("is_closed") === false && $(this).data("is_closing") === false) {
 
-                $(this).data( "is_closing", true);
-
                 var that = $(this);
 
                 var timeout = setTimeout(function() {
+
+                    that.data( "is_closing", true);
+
                     that.animate({"left": "-=250px"}, 1000, function() {
 
                         that.data( "is_closing", false);
