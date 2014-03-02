@@ -59,26 +59,32 @@ body {
 	position: absolute;
 	left: 0px;
 	padding: 10px;
-	padding-left: 30px;
+	padding-left: 100px;
 
-	width: 300px;
-	text-align: center;
+	width: 260px;
+	text-align: left;
 
 	overflow: hidden;
 }
 
-.release_date {
+.home {
 
     top: 150px;
 }
-
-.about {
+.demo {
 
     top: 220px;
-    cursor: pointer;
+}
+.monster_builds {
+
+    top: 290px;
+}
+.feedback {
+
+    top: 360px;
 }
 
-.about:hover h4 {
+.side_tab:hover h4 {
 
 	font-weight: bold;
 }

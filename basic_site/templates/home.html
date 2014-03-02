@@ -1,0 +1,19 @@
+{% extends "nav.html" %}
+
+{% block tab_content %}
+    
+	<script type="text/javascript">
+		$(function() {
+
+			$(".game_description").animate({ "bottom": "-=200px" }, 0);
+			$(".game_description").animate({ "bottom": "+=200px" }, 1000);
+		});
+	</script>
+
+    <div class="game_description_container">
+        <div class="rounded_corners game_description">
+            <p>Heaven's Tournament is a real time monster fighting game. Come battle your friends, time your attacks, and earn the favor of the gods.</p>
+        </div>
+    </div>
+
+{% endblock %}

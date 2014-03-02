@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="rounded_corners game_title">
+        <h1>Heaven's Tournament</h1>
+    </div>
+    <div class="rounded_corners side_tab home">
+        <h4>What Is This?</h4>
+    </div>
+    <div class="rounded_corners side_tab demo">
+        <h4>Play Demo</h4>
+    </div>
+    <div class="rounded_corners side_tab monster_builds">
+        <h4>Moves Explained</h4>
+    </div>
+    <div class="rounded_corners side_tab feedback">
+        <h4>Feedback</h4>
+    </div>
+
+    <script>
+    $(function() {
+
+        var init_hover_effect = false;
+
+        function on_hover_in() {
+
+            if ($(this).data("is_closed") === true) {
+
+                $(this).data( "is_closed", false);
+                $(this).animate({"left": "+=80px"}, 500);
+            }
+            else {
+
+                clearTimeout($(this).data("timeout_func"));
+            }
+        }
+
+        function on_hover_out() {
+
+            if ( $(this).data("is_closed") === false && $(this).data("is_closing") === false) {
+
+                var that = $(this);
+
+                var timeout = setTimeout(function() {
+
+                    that.data( "is_closing", true);
+
+                    that.animate({"left": "-=80px"}, 500, function() {
+
+                        that.data( "is_closing", false);
+                        that.data( "is_closed", true);
+                    });
+                }, 500);
+
+                that.data("timeout_func", timeout);
+            }
+        }
+
+        $(".home").click(function () {
+            window.location = "/home";
+        });
+        
+        $(".demo").click(function () {
+            window.location = "/demo";
+        });
+
+        $(".monster_builds").click(function () {
+            window.location = "/monster_builds";
+        });
+
+        $(".feedback").click(function () {
+            window.location = "/feedback";
+        });
+
+        $(".home").animate({ "left": "-=80px" }, 0);
+        $(".demo").animate({ "left": "-=80px" }, 0);
+        $(".monster_builds").animate({ "left": "-=80px" }, 0);
+        $(".feedback").animate({ "left": "-=80px" }, 0);
+
+        $( ".home" ).animate({ "left": "+=80px" }, 500, function() {
+
+            $( ".demo" ).animate({ "left": "+=80px" }, 500, function() {
+
+                $( ".monster_builds" ).animate({ "left": "+=80px" }, 500, function() {
+
+                    $( ".feedback" ).animate({ "left": "+=80px" }, 500, function() {
+
+                        //close all
+                        $(".side_tab").animate({"left": "-=80px"}, 500, function() {
+
+                            $(this).hover(on_hover_in, on_hover_out);
+                            $(this).data( "is_closed", true);
+                            $(this).data( "is_closing", false);
+
+                            console.log($(this));
+                        });
+                    });
+                });
+            });                    
+        });
+
+    });
+    </script>
+{% endblock %}
