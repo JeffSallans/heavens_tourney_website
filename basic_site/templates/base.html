@@ -24,6 +24,12 @@
         </style>
     </head>
     <body>
+        {% block tab_content %}
+        <p>
+            Tab Content 
+        </p>
+        {% endblock %}
+
         <div class="container">
 
                 {% if error_message %}
@@ -39,10 +45,5 @@
                 </p>
                 {% endblock %}
         </div>
-        {% block tab_content %}
-        <p>
-            Tab Content 
-        </p>
-        {% endblock %}
     </body>
 </html>

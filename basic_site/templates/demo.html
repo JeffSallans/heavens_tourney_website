@@ -1,7 +1,7 @@
 {% extends "nav.html" %}
 
 {% block tab_content %}
-    
+ 
    	 <script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
    	 <script type="text/javascript">
    	 var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
@@ -11,20 +11,20 @@
    	 </script>
    	 <script type="text/javascript">
    		 var config = {
-   			 width: 960,
+   			 width: 800,
    			 height: 600,
    			 params: { enableDebugging:"0" }
    			 
    		 };
    		 var u = new UnityObject2(config);
 
-   		 jQuery(function() {
+    	$(function() {
 
    			 var $missingScreen = jQuery("#unityPlayer").find(".missing");
    			 var $brokenScreen = jQuery("#unityPlayer").find(".broken");
    			 $missingScreen.hide();
    			 $brokenScreen.hide();
-   			 
+
    			 u.observeProgress(function (progress) {
    				 switch(progress.pluginStatus) {
    					 case "broken":
@@ -52,19 +52,21 @@
    					 break;
    				 }
    			 });
-   			 u.initPlugin(jQuery("#unityPlayer")[0], "{{MEDIA_URL}}demo.unity3d");
-   		 });
-   	 </script>
-
-	<script type="text/javascript">
-		$(function() {
 
 			$(".game_description").animate({ "bottom": "-=200px" }, 0);
 			$(".game_description").animate({ "bottom": "+=200px" }, 1000);
+
+   			 u.initPlugin(jQuery("#unityPlayer")[0], "{{MEDIA_URL}}demo.unity3d");
 		});
 	</script>
 
 	<style type="text/css">
+
+		div.game_description {
+
+			width: 800px;
+		}
+
 		div.broken,
 		div.missing {
 			margin: auto;
@@ -88,7 +90,7 @@
 		div#unityPlayer {
 			cursor: default;
 			height: 600px;
-			width: 960px;
+			width: 800px;
 		}
 	</style>
 
