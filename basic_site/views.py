@@ -45,7 +45,7 @@ def demo(request):
 def info(request):
 
 	error_message = "";
-	template = loader.get_template('test.html')
+	template = loader.get_template('info.html')
 
 	context = RequestContext(request, {
 		'error_message': error_message,
