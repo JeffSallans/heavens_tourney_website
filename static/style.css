@@ -61,7 +61,7 @@ body {
 	padding: 10px;
 	padding-left: 100px;
 
-	width: 260px;
+	width: 280px;
 	text-align: left;
 
 	overflow: hidden;
@@ -118,10 +118,4 @@ body {
 	word-wrap:break-word;
 
 	font-size: 26px;
-}
-
-.side_tab_container {
-
-	width: 250px;
-	height: auto;
 }
