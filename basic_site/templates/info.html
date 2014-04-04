@@ -2,9 +2,29 @@
 
 {% block tab_content %}
     
+  <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}info.css"/>
 	<script type="text/javascript">
 		$(function() {
 
+      $(".move_table tr").hide();
+      $(".info_monster_image_container span").children("img:first").addClass('selected_monster');
+      $(".move_table tr:nth-child(1)").show();
+      $(".move_table tr:nth-child(2)").show();
+      $(".info_monster_image_container span").click(function() {
+
+        //Change monster selected
+        $(".info_monster_image_container span").children("img").removeClass('selected_monster');
+        $(this).children("img:first").addClass('selected_monster');
+
+        //Change row displayed
+        $(".move_table tr").hide();
+
+        var monster = $(this).attr('monster');
+
+        var selection = ".move_table tr[monster='" + monster + "']";
+
+        $(selection).show("fade");
+      });
 			$(".game_description").animate({ "bottom": "-=200px" }, 0);
 			$(".game_description").animate({ "bottom": "+=200px" }, 1000);
 		});
@@ -12,7 +32,216 @@
 
     <div class="game_description_container">
         <div class="rounded_corners game_description">
-            <p>Move Info Coming This Week.</p>
+        	<div class="info_monster_image_container">
+	        	<span monster="curro">
+	        		<img src="{{MEDIA_URL}}/pictures/monsters/Curro.png">
+	        	</span>
+	        	<span monster="drumlin">
+	        		<img src="{{MEDIA_URL}}/pictures/monsters/Drumlin.png">
+	        	</span>
+	        	<span monster="goliath">
+	        		<img src="{{MEDIA_URL}}/pictures/monsters/Goliath.png">
+	        	</span>
+	        	<span monster="macroraptor">
+	        		<img src="{{MEDIA_URL}}/pictures/monsters/Macroraptor.png">
+	        	</span>
+	        	<span monster="simurgh">
+	        		<img src="{{MEDIA_URL}}/pictures/monsters/Simurgh.png">
+	        	</span>
+	        </div>
+<table class="move_table">
+<tr monster="curro">
+  <td class="name">
+    Nap
+  </td>
+  <td class="name">
+    Life Steal
+  </td>
+  <td class="name">
+    Flame Rush
+  </td>
+  <td class="name">
+    Dragon Stance
+  </td>
+</tr>
+<tr monster="curro">
+  <td>
+    Cost: 3<br>
+    Increases HP by an increasing rate totaling 45 for 6 seconds<br>
+	Will cancel if you attack <br>
+  </td>
+
+  <td>
+    Cost: 2<br>
+    Damage: 10<br>
+    +10 HP<br>
+  </td>
+  
+  <td>
+    Cost: 4<br>
+    Min Damage: 10<br>
+    Max Damage: 40<br>
+  </td>
+  
+  <td>
+    Cost: 1<br>
+    Opp -60% Atk for 1.5 seconds if Own Health is above 50%<br>
+    Opp -40% Atk  for 1.5 seconds<br></td>
+</tr>
+
+<tr monster="drumlin">
+  <td class="name">
+    Waterfall
+  </td>
+  <td class="name">
+    Drench
+  </td>
+  <td class="name">
+    Void Dash
+  </td>
+  <td class="name">
+    Sneaky
+  </td>
+</tr>
+<tr monster="drumlin">
+  <td>
+    Cost: 5<br>
+    Min Damage: 20<br>
+    Max Damage: 50<br>
+    1 time only then<br>
+    Min Damage: 10<br>
+    Max Damage: 20<br>
+  </td>
+  <td>
+    Cost: 2<br>
+    Min Damage: 5<br>
+    Max Damage: 25<br>
+    20% chance to get +20% Atk for 10 secs<br>
+  </td>
+  <td>
+    Cost: 2<br>
+    True damage: 7<br>
+    Speed up time for .5 secs<br>
+  </td>
+  <td>
+    Cost: 2<br>
+    Go invisible for 10 secs<br>
+    Opp -40% Atk for 5 secs<br>
+</td>
+</tr>
+<tr monster="goliath">
+  <td>
+    Geo Smash
+  </td>
+  <td>
+    Earth Absorb
+  </td>
+  <td>
+    Pointed Stones
+  </td>
+  <td>
+    Block
+  </td>
+</tr>
+<tr monster="goliath">
+  <td>
+    Cost: 2<br>
+    Min Damage: 5<br>
+    Max Damage: 30<br>
+    -20% Def for 10 secs<br>
+  </td>
+  
+  <td>
+    Cost: 2<br>
+    +20% Def for 8 seconds<br>
+    +30% increasing rate per second for 8 secs<br>
+    Cancels if you attack<br>
+  </td>
+
+  <td>
+    Cost: 2<br>
+    DOT 15 damage in 20 seconds<br>
+  </td>
+  <td>
+    Cost: 1<br>
+	+60% Def for 1 sec<br>
+    +20% Def for 10 sec<br>
+  </td>
+
+</tr>
+<tr monster="macroraptor">
+  <td>Short Changed</td>
+  <td>Cloudforce</td>
+  <td>Tear Apart</td>
+  <td>Quick Heal</td>
+</tr>
+<tr monster="macroraptor">
+  <td>
+    Cost: 0<br>
+    -20 health to 2 stamina<br>
+  </td>
+
+  <td>
+    Cost: 2<br>
+    less health more damage<br>
+    Min Damage: 2<br>
+    75% HP: 10<br>
+    50% HP: 15<br>
+	40% HP: 20<br>
+	30% HP: 25<br>
+	20% HP: 30<br>
+	10% HP: 40<br>
+  </td>
+
+  <td>
+  	Cost: 3<br>
+    Opp -60% Atk Opp for 5 seconds<br>
+    Min Damage: 0<br>
+    Max Damage: 20<br>
+  </td>
+
+  <td>
+    Cost: 1<br>
+    +10 HP<br>
+  </td>
+</tr>
+
+<tr monster="simurgh">
+  <td>Flame Tackle</td>
+  <td>Tornado Rush</td>
+  <td>Invigorate</td>
+  <td>Dodge</td>
+</tr>
+<tr monster="simurgh">
+  <td>
+    Cost: 2 <br>
+    Min Damage: 5<br>
+    Max Damage: 25<br>
+    High damage potential move <br>
+  </td>
+  
+  <td>
+    Cost: 2<br>
+    Min Damage: 10<br>
+    Max Damage: 20<br>
+  </td>
+  
+  <td>
+    Cost: 2<br>
+    +60% Atk for 1 sec<br>
+    +40% Atk for 10 secs<br>
+	A short attack buff (of 2x damage) turns into a small attack buff<br>
+  </td>
+
+  <td>
+  	Cost: 1<br>
+    Forward Dash<br>
+  	-20% Def for 1 sec<br>
+    A dash to throw off your opponent’s timing, but your defense is weakened during<br>
+  </td>
+
+</tr>
+</table> 
         </div>
     </div>
 

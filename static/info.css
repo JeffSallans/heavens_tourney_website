@@ -1,0 +1,60 @@
+.game_description {
+
+	width: 800px;
+}
+
+.info_monster_image_container {
+
+
+}
+
+.info_monster_image_container img:hover {
+
+	background-color: #EFEFEF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.info_monster_image_container span, .info_monster_image_container span img {
+
+	height: 150px;
+	width: 150px;
+
+	cursor: pointer;
+}
+
+.selected_monster {
+
+	background-color: #AFAFAF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.move_table {
+
+	margin-top: 30px;
+}
+
+.move_table tr {
+
+	vertical-align: text-top;
+	font-size: 14px;
+}
+
+.move_table tr:nth-child(odd) {
+
+	font-size: 25px;
+}
+
+.move_table tr:nth-child(even) {
+
+	height: 250px;
+}
+
+.move_table td {
+
+	width: 25%;
+	padding: 8px;
+}
