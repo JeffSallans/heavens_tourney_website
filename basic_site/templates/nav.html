@@ -72,33 +72,15 @@
             window.location = "/feedback";
         });
 
-        $(".home").animate({ "left": "-=80px" }, 0);
-        $(".demo").animate({ "left": "-=80px" }, 0);
-        $(".monster_builds").animate({ "left": "-=80px" }, 0);
-        $(".feedback").animate({ "left": "-=80px" }, 0);
+        //close all
+        $(".side_tab").animate({"left": "-=80px"}, 0, function() {
 
-        $( ".home" ).animate({ "left": "+=80px" }, 500, function() {
+            $(this).hover(on_hover_in, on_hover_out);
+            $(this).data( "is_closed", true);
+            $(this).data( "is_closing", false);
 
-            $( ".demo" ).animate({ "left": "+=80px" }, 500, function() {
-
-                $( ".monster_builds" ).animate({ "left": "+=80px" }, 500, function() {
-
-                    $( ".feedback" ).animate({ "left": "+=80px" }, 500, function() {
-
-                        //close all
-                        $(".side_tab").animate({"left": "-=80px"}, 500, function() {
-
-                            $(this).hover(on_hover_in, on_hover_out);
-                            $(this).data( "is_closed", true);
-                            $(this).data( "is_closing", false);
-
-                            console.log($(this));
-                        });
-                    });
-                });
-            });                    
+            console.log($(this));
         });
-
     });
     </script>
 {% endblock %}
